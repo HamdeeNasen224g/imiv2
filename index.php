@@ -22,13 +22,28 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script> 
   </body>
   <script>
-      
-$(
-    ()=>{
-        alert("Thank God");
+      function loadeData(){
+
+        let url = "https://api.thingspeak.com/channels/1458412/feeds.json?results=1";
+
+$.getJSON(url,function( data) {
+
+  console.log(data);
+  let feeds = data.feeds;
+  console.log(feeds[0]);
+
+
+      });
     }
 
-
-)
+$(
+    ()=>{
+       // alert("Thank God");
+       
+        
+        
+        loadeData();
+      
+      })     
   </script>
 </html>
