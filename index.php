@@ -20,11 +20,13 @@
             <div class=" col-6">
               <canvas id="myChart" width="400" height="200"></canvas>
             </div>
-            <div class="col-6">
-              <canvas id="myChart1" width="400" height="200"></canvas>
-            </div>
         </div>
-
+        <div class="container">
+          <div class="row">
+              <div class="col-6">
+                <canvas id="myChart1" width="400" height="200"></canvas>
+              </div>
+          </div>
 
 
         <div class="row">
@@ -97,12 +99,7 @@
               $("#lastTempearature").text(feeds[0].field2+" C");
               $("#lastHumadity").text(feeds[0].field1+" %");
               $("#lastUpdate").text(feeds[0].created_at);
-          
-       //   for (let i=0; i < feeds.length; i++)  {
-         //   xlabel[i] = i+1;
-         //   data1[i] = feeds[i].field1;
-         //   data2[i] = feeds[i].field2;  
-       //   } 
+              
         $.each(feeds, (k, v)=>{
               xlabel.push(v.entry_id);
               data1.push(v.field1);
