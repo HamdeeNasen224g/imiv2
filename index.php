@@ -82,7 +82,10 @@
                 labels: xlabel,
                 datasets: [{
                     label: label,
-                    data: data
+                    data: data,
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
 
                 }]
             }
