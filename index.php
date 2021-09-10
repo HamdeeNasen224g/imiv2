@@ -38,6 +38,9 @@ date_default_timezone_set('Asia/Bangkok');
 
         <div class="col-6">
                 <div class="row">
+                  <div><h5>Last Data</h5></div>
+                </div>
+                <div class="row">
                     <div class="col-4">
                       <b>Tempearature</b>
 
