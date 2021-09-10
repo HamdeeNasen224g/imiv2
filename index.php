@@ -1,6 +1,10 @@
+<?php
+date_default_timezone_set('Asia/Bangkok');
+?>
 <!doctype html>
 <html lang="en">
   <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,10 +28,15 @@
             </div>
         </div>
 
-
+        
 
         <div class="row">
-              <div class="col-3">
+
+        <div class="col-6">
+              <canvas id="myChart2" width="400" height="200"></canvas>
+          </div>
+
+        <div class="col-6">
                 <div class="row">
                     <div class="col-4">
                       <b>Tempearature</b>
@@ -43,6 +52,14 @@
                   </div>
                    <div class="col-8">
                       <b><span id="lastHumadity"></span></b>
+                   </div> 
+              </div>
+              <div class="row">
+                  <div class="col-4">
+                    <b>Light</b>
+                  </div>
+                   <div class="col-8">
+                      <b><span id="light"></span></b>
                    </div> 
               </div>
               <div class="row">
@@ -103,29 +120,35 @@ $(
        var xlabel=[];
           var data1=[];
           var data2=[];
+          var data3=[];
        let url = "https://api.thingspeak.com/channels/1458412/feeds.json?results=240";
        $.getJSON(url,function( data) {
              let feeds = data.feeds;
              console.log(data);
               $("#lastTempearature").text(feeds[0].field2+" C");
               $("#lastHumadity").text(feeds[0].field1+" %");
-
-              $("#lastUpdate").text(formatJSONDate(Date(feeds[0].created_a)));
+              $("#light").text(feeds[0].field3);
+              var date = new Date(parseInt(feeds[0].created_at));
+              const str = new Date(parseInt(feeds[0].created_at)).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' });
+              $("#lastUpdate").text( str);
               
           for (let i=0; i < feeds.length; i++)  {
-            xlabel[i] = i+1;
+            xlabel[i] = new Date(parseInt(feeds[i].created_at)).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' });
             data1[i] = feeds[i].field1;
             data2[i] = feeds[i].field2;  
+            data3[i] = feeds[i].field3; 
           } 
 
 
       var id1 = 'myChart';  
      var id2 = 'myChart1';
+     var id3 = 'myChart2';
      var label1 = 'Humadity';
      var label2 = 'Tempearature';
-
+     var label3 = 'Light';
       showChart(data1,xlabel,id1,label1);
       showChart(data2,xlabel,id2,label2); 
+      showChart(data3,xlabel,id3,label3); 
       });     
       console.log(xlabel);    
       console.log(data1);
