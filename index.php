@@ -17,7 +17,8 @@ date_default_timezone_set('Asia/Bangkok');
     <title>Hamdee Naseng 62112073</title>
   </head>
   <body>
-    <h1>Hamdee Naseng 62112073</h1>
+    <br>
+    <h1 align=center>Hamdee Naseng 62112073</h1>
     <div class="container">
         <div class="row">
             <div class=" col-6">
