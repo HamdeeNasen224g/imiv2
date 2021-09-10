@@ -93,7 +93,7 @@
         });
       }
       function formatJSONDate(jsonDate) {
-  var newDate = dateFormat(jsonDate, "mm/dd/yyyy");
+  var newDate = date(jsonDate, "mm/dd/yyyy");
   return newDate;
 }
 
