@@ -92,7 +92,10 @@
     
         });
       }
-   
+      function formatJSONDate(jsonDate) {
+  var newDate = dateFormat(jsonDate, "mm/dd/yyyy");
+  return newDate;
+}
 
 $(
     ()=>{
@@ -106,8 +109,9 @@ $(
              console.log(data);
               $("#lastTempearature").text(feeds[0].field2+" C");
               $("#lastHumadity").text(feeds[0].field1+" %");
-              $("#lastUpdate").text(feeds[0].created_at);
-          
+
+              $("#lastUpdate").text(formatJSONDate(Date(feeds[0].created_a)));
+              
           for (let i=0; i < feeds.length; i++)  {
             xlabel[i] = i+1;
             data1[i] = feeds[i].field1;
