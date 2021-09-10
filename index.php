@@ -109,7 +109,7 @@ $(
               $("#lastUpdate").text(feeds[0].created_at);
           
           for (let i=0; i < feeds.length; i++)  {
-            xlabel[i] = i+1;
+            xlabel[i] = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss",feeds[i].created_at);;
             data1[i] = feeds[i].field1;
             data2[i] = feeds[i].field2;  
           } 
