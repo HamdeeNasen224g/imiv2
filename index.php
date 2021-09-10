@@ -106,10 +106,10 @@ $(
              console.log(data);
               $("#lastTempearature").text(feeds[0].field2+" C");
               $("#lastHumadity").text(feeds[0].field1+" %");
-              $("#lastUpdate").text(dateFormat(feeds[0].created_at,"yyyy-MM-dd HH:mm:ss"));
+              $("#lastUpdate").text(feeds[0].created_at);
           
           for (let i=0; i < feeds.length; i++)  {
-            xlabel[i] =i;
+            xlabel[i] = i+1;
             data1[i] = feeds[i].field1;
             data2[i] = feeds[i].field2;  
           } 
