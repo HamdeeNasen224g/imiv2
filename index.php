@@ -129,11 +129,11 @@ $(
        $.getJSON(url,function( data) {
              let feeds = data.feeds;
              console.log(data);
-              $("#lastTempearature").text(feeds[0].field2+" C");
-              $("#lastHumadity").text(feeds[0].field1+" %");
-              $("#light").text(feeds[0].field3);
-              var date = new Date(parseInt(feeds[0].created_at));
-              const str = new Date(parseInt(feeds[0].created_at)).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' });
+              $("#lastTempearature").text(feeds[feeds.length-1].field2+" C");
+              $("#lastHumadity").text(feeds[feeds.length-1].field1+" %");
+              $("#light").text(feeds[feeds.length-1].field3);
+              var date = new Date(parseInt(feeds[feeds.length-1].created_at));
+              const str = new Date(parseInt(feeds[feeds.length-1].created_at)).toLocaleString('en-US', { timeZone: 'Asia/Bangkok' });
               $("#lastUpdate").text( str);
               
           for (let i=0; i < feeds.length; i++)  {
